@@ -44,10 +44,12 @@
     <Compile Include="BoxedPositionCalculator.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="IDataConverter.cs" />
+    <Compile Include="IDataFetch.cs" />
     <Compile Include="NetPositionCalculator.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="PositionCalculator.cs" />
     <Compile Include="PositionDataConverter.cs" />
+    <Compile Include="PositionDataFetch.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FileWriter.cs" />

@@ -7,8 +7,8 @@ namespace mlp.interviews.boxing.problem
 {
     class NetPositionCalculator : PositionCalculator
     {
-        public NetPositionCalculator(IDataConverter<Position> converter)
-            : base(converter)
+        public NetPositionCalculator(IDataConverter<Position> converter, IDataFetch dataFetch)
+            : base(converter, dataFetch)
         { }
           
         /// <summary>

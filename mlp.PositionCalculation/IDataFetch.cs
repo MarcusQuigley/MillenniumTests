@@ -5,8 +5,9 @@ using System.Text;
 
 namespace mlp.interviews.boxing.problem
 {
-    public interface IDataConverter<T>
+    public interface IDataFetch
     {
-        IList<T> Convert(IList<string> data);
+        string Path { get; set; }
+        IList<string> GetData();
     }
 }

@@ -9,34 +9,38 @@ namespace mlp.interviews.boxing.problem
     {
         IList<Position> positions;
         IDataConverter<Position> converter;
+        IDataFetch dataFetch;
         const string RESULTS_HEADER = "TRADER,SYMBOL,QUANTITY";
 
-        protected PositionCalculator(IDataConverter<Position> converter)
+        protected PositionCalculator(IDataConverter<Position> converter, IDataFetch dataFetch)
         {
             if (converter == null)
                 throw new ArgumentNullException("converter");
+            if (dataFetch == null)
+                throw new ArgumentNullException("dataFetch");
  
             this.converter = converter;
+            this.dataFetch = dataFetch;
 
             ResultData = new List<string>();
             ResultData.Add(RESULTS_HEADER);
 
             try
             {
-                var csvData = converter.GetData();
+                var csvData = dataFetch.GetData();
                // if (csvData)
                 this.positions = converter.Convert(csvData);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Error getting data");
             }
          }
 
         /// <summary>
         /// The IDataConverter that will create a list of Positions
         /// </summary>
-        public IDataConverter<Position> Converter { get { return converter; } }
+      //  public IDataConverter<Position> Converter { get { return converter; } }
 
         /// <summary>
         /// A list of Positions

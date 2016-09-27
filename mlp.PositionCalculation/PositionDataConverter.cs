@@ -9,29 +9,8 @@ namespace mlp.interviews.boxing.problem
     {
         private char delimiter = ',';
 
-        public PositionDataConverter(string path)
-        {
-            if (string.IsNullOrEmpty(path))
-                throw new ArgumentNullException("path");
-
-            this.Path = path;
-        }
-
-        public string Path { get; set; }
-
-        public IList<string> GetData()
-        {
-            try
-            {
-                var data = FileReader.ReadData(this.Path);
-                return new List<string>(data);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception reading data");
-                throw ex;
-            }
-        }
+        public PositionDataConverter() 
+        { }
 
         public IList<Position> Convert(IList<string> data)
         {

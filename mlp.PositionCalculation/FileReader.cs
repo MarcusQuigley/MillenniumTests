@@ -6,14 +6,14 @@ using System.Text;
 
 namespace mlp.interviews.boxing.problem
 {
-    public static class FileReader
+    public class FileReader : IFileReader
     {
         /// <summary>
         /// Returns an collection of strings from path if valid
         /// </summary>
         /// <param name="path">Path of file</param>
         /// <returns>IEnumerable of string</returns>
-        public static IEnumerable<string> ReadData(string path)
+        public IEnumerable<string> ReadData(string path)
         {
             if (string.IsNullOrEmpty(path))
                 throw new ArgumentNullException("path");

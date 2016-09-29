@@ -14,7 +14,9 @@ namespace mlp.PositionCalculation.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void WriteData_Always_FailsIfNoData()
         {
-            FileWriter.WriteData("", null);
+            IFileWriter fileWriter = CreateFileWriterStub();
+
+            fileWriter.WriteData("", null);
             
         }
 
@@ -22,14 +24,27 @@ namespace mlp.PositionCalculation.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void WriteData_Always_FailsIfNoFileName()
         {
-            FileWriter.WriteData(null, new List<string>(){"data"});
+            IFileWriter fileWriter = CreateFileWriterStub();
+
+            fileWriter.WriteData(null, new List<string>() { "data" });
+           
+            
          }
 
         [TestMethod]
+        [Ignore]
         public void WriteData_Always_CreatesFile()
         {
-            //I really need to mock this up by using an interface
-  
+            //TODO cant test this without a mocking framework
+            //IFileWriter fileWriter = CreateFileWriterStub();
+            //fileWriter.WriteData("fileName", new List<string>() { "data" });
+            //Assert.
+        }
+
+        IFileWriter CreateFileWriterStub()
+        {
+            IFileWriter fileWriter = new FileWriter();
+            return fileWriter;
         }
     }
 }

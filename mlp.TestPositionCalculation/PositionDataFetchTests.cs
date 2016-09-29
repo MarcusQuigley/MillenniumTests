@@ -13,27 +13,42 @@ namespace mlp.PositionCalculation.Tests
     [TestClass]
     public class PositionDataFetchTests
     {
+        const string TEST_DATA_PATH = @"..\..\..\..\DataFiles\test_data.csv";
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Ctr_EmptyPath_ThrowsArgumentNullException()
         {
-            PositionDataFetch pdFetch = new PositionDataFetch(null);
+            PositionDataFetch pdFetch = new PositionDataFetch(null, CreateFileReaderStub());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Ctr_NoFileReader_ThrowsArgumentNullException()
+        {
+            PositionDataFetch pdFetch = new PositionDataFetch("path", null);
         }
 
         [TestMethod]
         public void Ctr_Always_PopulatesPath()
         {
             string testPath = "TestPath";
-            PositionDataFetch pdFetch = new PositionDataFetch(testPath);
+            PositionDataFetch pdFetch = new PositionDataFetch(testPath, CreateFileReaderStub());
             Assert.AreEqual(testPath, pdFetch.Path);
         }
 
         [TestMethod]
-        [Ignore]
-        public void GetData_Always_RaturnsData()
-        { 
-            //TODO need to refactor FileReader/Writer to interfaces so I can mock them.
+         public void GetData_Always_RaturnsData()
+        {
+            PositionDataFetch pdFetch = new PositionDataFetch(TEST_DATA_PATH, CreateFileReaderStub());
+            var resultList = pdFetch.GetData();
+            Assert.IsNotNull(resultList);
+        }
+
+        IFileReader CreateFileReaderStub()
+        {
+            IFileReader fileReader = new FileReader();
+            return fileReader;
         }
     }
 }

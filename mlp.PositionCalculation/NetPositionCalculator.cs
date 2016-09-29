@@ -18,6 +18,7 @@ namespace mlp.interviews.boxing.problem
         {
             if (this.Positions != null)
             {
+                //Groups by Trader and symbol and adds a dictionary of details based on the group by
                 var distinctTradersPositions = this.Positions
                     .GroupBy(p => new { p.TraderName, p.Symbol })
                     .ToDictionary(group => new { group.FirstOrDefault().TraderName, group.FirstOrDefault().Symbol }, grpVal => grpVal.ToList());

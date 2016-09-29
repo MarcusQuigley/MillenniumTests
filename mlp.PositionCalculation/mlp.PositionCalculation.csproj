@@ -45,6 +45,8 @@
     <Compile Include="FileReader.cs" />
     <Compile Include="IDataConverter.cs" />
     <Compile Include="IDataFetch.cs" />
+    <Compile Include="IFileReader.cs" />
+    <Compile Include="IFileWriter.cs" />
     <Compile Include="NetPositionCalculator.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="PositionCalculator.cs" />

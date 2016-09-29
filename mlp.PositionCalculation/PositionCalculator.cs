@@ -23,6 +23,7 @@ namespace mlp.interviews.boxing.problem
             this.dataFetch = dataFetch;
 
             ResultData = new List<string>();
+            //Not sure if this is good here..
             ResultData.Add(RESULTS_HEADER);
 
             try

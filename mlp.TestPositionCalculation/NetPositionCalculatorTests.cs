@@ -7,8 +7,8 @@ namespace mlp.PositionCalculation.Tests
     [TestClass]
     public class NetPositionCalculatorTests : HelperPositionCalculatorTestFile
     {
-       
-        //START OF PositionCalculator Tests
+
+        #region START OF PositionCalculator Tests
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Ctr_Always_FailsIfNoIDataConverter()
@@ -59,8 +59,9 @@ namespace mlp.PositionCalculation.Tests
             
             Assert.IsNotNull(netPosCalc.Positions);
         }
-        //END OF PositionCalculator Tests
-        //START OF NetPositionCalculator Tests
+        #endregion END OF PositionCalculator Tests
+
+        #region START OF NetPositionCalculator Tests
 
         [TestMethod]
         public void Calculate_Always_PopulatesResultData()
@@ -96,7 +97,7 @@ namespace mlp.PositionCalculation.Tests
         }
 
         [TestMethod]
-        public void Calculate_Always_CreatesNetResultsWithGoodData()
+        public void Calculate_Always_CreatesNetResultsWithCorrectDataCount()
         {
             IDataConverter<Position> dataConverterStub = CreateDataConverter();
             IDataFetch dataFetchStub = CreateDataFetchStub(TEST_DATA_PATH);
@@ -106,7 +107,22 @@ namespace mlp.PositionCalculation.Tests
             Assert.IsTrue(netPosCalc.ResultData.Count == 20);
         }
 
-        //END OF NetPositionCalculator Tests
+        [TestMethod]
+        public void Calculate_Always_CreatesNetResultsWithGoodData()
+        {
+            IDataConverter<Position> dataConverterStub = CreateDataConverter();
+            IDataFetch dataFetchStub = CreateDataFetchStub(TEST_DATA_PATH);
+
+            PositionCalculator netPosCalc = new NetPositionCalculator(dataConverterStub, dataFetchStub);
+            netPosCalc.Calculate();
+            var splitData = netPosCalc.ResultData[2].Split(DELIMITER);
+
+            Assert.IsTrue(int.Parse(splitData[2]) == -100, "The path needs to point to 'test_data.csv'");
+             
+        }
+
+        
+        #endregion END OF NetPositionCalculator Tests
 
       
     }

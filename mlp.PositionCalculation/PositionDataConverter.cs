@@ -5,13 +5,18 @@ using System.Text;
 
 namespace mlp.interviews.boxing.problem
 {
-   class PositionDataConverter : IDataConverter<Position>
+    class PositionDataConverter : IDataConverter<Position>
     {
         private char delimiter = ',';
 
-        public PositionDataConverter() 
+        public PositionDataConverter()
         { }
 
+        /// <summary>
+        /// Converts list of strings to list of Positions
+        /// </summary>
+        /// <param name="data">list of strings</param>
+        /// <returns>list of Positions</returns>
         public IList<Position> Convert(IList<string> data)
         {
             if (data == null)

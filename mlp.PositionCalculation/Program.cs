@@ -12,6 +12,7 @@ namespace mlp.interviews.boxing.problem
         static string testDataFile = "test_data.csv";
         const string netPositionsFile = "net_positions.csv";
         const string boxedPositionsFile = "boxed_positions.csv";
+       
         static void Main(string[] args)
         {
             Console.WriteLine("Running 'Position Calculation application'");
@@ -28,11 +29,13 @@ namespace mlp.interviews.boxing.problem
             string testData = Path.Combine(dataPath, testDataFile);
 
             IDataConverter<Position> dataConverter = new PositionDataConverter();
-            IDataFetch dataFetch = new PositionDataFetch(testData);
+            IFileReader fileReader = new FileReader();
+            IDataFetch dataFetch = new PositionDataFetch(testData, fileReader);
+            IFileWriter fileWriter = new FileWriter();
 
-            RunNetPositions(dataFetch, dataConverter, netPositionsFile);
+            RunNetPositions(dataFetch, dataConverter, netPositionsFile, fileWriter);
 
-            RunBoxedPositions(dataFetch, dataConverter, boxedPositionsFile);
+            RunBoxedPositions(dataFetch, dataConverter, boxedPositionsFile, fileWriter);
 
             Console.WriteLine("Application finished. Results at '{0}'", dataPath);
             Console.WriteLine("Enter to quit");
@@ -40,25 +43,27 @@ namespace mlp.interviews.boxing.problem
 
         }
 
-        static void RunNetPositions(IDataFetch fetcher, IDataConverter<Position> converter, string outputFile)
+       
+
+        static void RunNetPositions(IDataFetch fetcher, IDataConverter<Position> converter, string outputFile, IFileWriter fileWriter)
         {
             string netOutputFile = Path.Combine(dataPath, outputFile);
             NetPositionCalculator netPosnCalc = new NetPositionCalculator(converter, fetcher);
             netPosnCalc.Calculate();
             if (netPosnCalc.HasResultData)
             {
-                FileWriter.WriteData(netOutputFile, netPosnCalc.ResultData);
+                fileWriter.WriteData(netOutputFile, netPosnCalc.ResultData);
             }
         }
 
-        static void RunBoxedPositions(IDataFetch fetcher, IDataConverter<Position> converter, string outputFile)
+        static void RunBoxedPositions(IDataFetch fetcher, IDataConverter<Position> converter, string outputFile, IFileWriter fileWriter)
         {
             string boxedOutputFile = Path.Combine(dataPath, outputFile);
             BoxedPositionCalculator boxPosnCalc = new BoxedPositionCalculator(converter, fetcher);
             boxPosnCalc.Calculate();
             if (boxPosnCalc.HasResultData)
             {
-                FileWriter.WriteData(boxedOutputFile, boxPosnCalc.ResultData);
+                fileWriter.WriteData(boxedOutputFile, boxPosnCalc.ResultData);
             }
         }
 

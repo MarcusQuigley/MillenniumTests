@@ -14,14 +14,16 @@ namespace mlp.PositionCalculation.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void ReadData_Always_ThrowsArgumentNullException()
         {
-            FileReader.ReadData(null);
+            IFileReader fileReader = CreateFileReaderStub();
+            fileReader.ReadData(null);
          }
 
         [TestMethod]
         [ExpectedException(typeof(FileNotFoundException))]
         public void ReadData_Always_FailsIfBadPath()
         {
-            FileReader.ReadData(@"cc:\testttt.555");
+            IFileReader fileReader = CreateFileReaderStub();
+            fileReader.ReadData(@"cc:\testttt.555");
          }
 
         [TestMethod]
@@ -29,11 +31,18 @@ namespace mlp.PositionCalculation.Tests
         {
             //arrange
             //TODO - You may need to change the file name
+            IFileReader fileReader = CreateFileReaderStub();
              string validFile = "mlp.PositionCalculation.pdb";
             //act
-            var result = FileReader.ReadData(validFile);
+             var result = fileReader.ReadData(validFile);
             //assert
             Assert.IsNotNull(result);
+        }
+
+        IFileReader CreateFileReaderStub()
+        {
+            IFileReader fileReader = new FileReader();
+            return fileReader;
         }
     }
 }

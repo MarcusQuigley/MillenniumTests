@@ -1,0 +1,9 @@
+trader,broker,symbol,quantity,price
+Anna,DB,IBM.N,100,12
+Anna,DB,JNJ.N,-100,15
+Anna,DB,PEP.N,100,10
+John,DB,IBM.N,200,12
+John,CS,IBM.N,100,12
+John,DB,LLY.N,100,13
+John,ML,MS.N,-100,11
+John,ML,PEP.N,100,10

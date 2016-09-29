@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mlp.PositionCalculation", "mlp.PositionCalculation\mlp.PositionCalculation.csproj", "{F8A859A2-A071-46DF-A1CC-83E5C0E3136A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareTest", "SoftwareTest\SoftwareTest.csproj", "{7D6BA10C-60DC-4D88-B7D5-A3ACF245DA96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mlp.PositionCalculation.Tests", "mlp.TestPositionCalculation\mlp.PositionCalculation.Tests.csproj", "{6BAF8AB8-20B8-431D-90E0-B4E2CEA4DE9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F8A859A2-A071-46DF-A1CC-83E5C0E3136A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8A859A2-A071-46DF-A1CC-83E5C0E3136A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8A859A2-A071-46DF-A1CC-83E5C0E3136A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D6BA10C-60DC-4D88-B7D5-A3ACF245DA96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6BA10C-60DC-4D88-B7D5-A3ACF245DA96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6BA10C-60DC-4D88-B7D5-A3ACF245DA96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6BA10C-60DC-4D88-B7D5-A3ACF245DA96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BAF8AB8-20B8-431D-90E0-B4E2CEA4DE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BAF8AB8-20B8-431D-90E0-B4E2CEA4DE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BAF8AB8-20B8-431D-90E0-B4E2CEA4DE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BAF8AB8-20B8-431D-90E0-B4E2CEA4DE9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

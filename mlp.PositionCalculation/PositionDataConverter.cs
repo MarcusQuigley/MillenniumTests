@@ -5,7 +5,7 @@ using System.Text;
 
 namespace mlp.interviews.boxing.problem
 {
-    class PositionDataConverter : IDataConverter<Position>
+   class PositionDataConverter : IDataConverter<Position>
     {
         private char delimiter = ',';
 
@@ -22,7 +22,7 @@ namespace mlp.interviews.boxing.problem
             //I assume that the data will contain a header line
             if (data.Count > 1)
             {
-                foreach (string line in data.Skip(1))
+                foreach (string line in data.Skip(1)) //skip header
                 {
                     string[] splitResult = line.Split(delimiter);
                     result.Add(new Position()

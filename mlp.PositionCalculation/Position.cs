@@ -5,7 +5,7 @@ using System.Text;
 
 namespace mlp.interviews.boxing.problem
 {
-     class Position
+    public class Position
     {
         /// <summary>
         /// Name of trader

@@ -5,23 +5,22 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("mlp.PositionCalculation")]
+[assembly: AssemblyTitle("mlp.PositionCalculation.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("mlp.PositionCalculation")]
+[assembly: AssemblyProduct("mlp.PositionCalculation.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: InternalsVisibleTo("mlp.PositionCalculation.Tests")]
-          
+
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("966824ff-11cb-4885-8d00-d02d5734b09c")]
+[assembly: Guid("6de4462f-210c-48cd-98f1-0ee9b892d9eb")]
 
 // Version information for an assembly consists of the following four values:
 //
